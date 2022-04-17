@@ -1,0 +1,97 @@
+startup_message off 
+vbell on
+#backtick 1 60 60 date +%H:%M
+#backtick 3 60 60 sh -c 'free -m | grep '\''^Mem:'\'' | awk '\''{print $7}'\'''
+defshell -bash
+shelltitle ''
+bind c screen 0
+bind ^c screen 0
+bind ` select 0
+bind 0 select 10
+#bindkey "^[`" select 0
+#bindkey "^[1" select 1
+#bindkey "^[2" select 2
+#bindkey "^[3" select 3
+#bindkey "^[4" select 4
+#bindkey "^[5" select 5
+#bindkey "^[6" select 6
+#bindkey "^[7" select 7
+#bindkey "^[8" select 8
+#bindkey "^[9" select 9
+#bindkey "^[0" select 10
+#bindkey "^[[1;3P" select 11
+#bindkey "^[[1;3Q" select 12
+#bindkey "^[[1;3R" select 13
+#bindkey "^[[1;3S" select 14
+#bindkey "^[[15;3~" select 15
+#bindkey "^[[17;3~" select 16
+#bindkey "^[[18;3~" select 17
+#bindkey "^[[19;3~" select 18
+#bindkey "^[[20;3~" select 19
+#bindkey "^[[21;3~" select 20
+#bindkey "^[[23;3~" select 21
+#bindkey "^[[24;3~" select 22
+#bindkey "^[-" select 23
+#bindkey "^[=" select 24
+msgwait 2
+defscrollback 2000
+
+bindkey "^[	" focus next
+bindkey "^[q" focus prev
+
+#bindkey -k kB stuff ^[OZ
+#bind -k kB focus up
+#bindkey "^[[Z" focus prev
+#bindkey -k kB stuff ^[OZ
+
+
+# fix backspace
+bindkey -d -k kb stuff "\010"
+
+# toggle statusbar
+#bind j eval "hardstatus alwayslastline"
+bind j eval "hardstatus alwaysfirstline"
+bind J eval "hardstatus ignore"
+#bindkey "^[j" eval "hardstatus alwayslastline"
+bindkey "^[j" eval "hardstatus alwaysfirstline"
+bindkey "^[J" eval "hardstatus ignore"
+
+bind ^x
+bind x
+
+#hardstatus alwaysfirstline "%{.mk}  %-w%{.mw}%n %t%{-}%+w %=%= %3`M  %D %M %d  %{.mw}%1` "
+
+backtick 1 0 0 /home/main/scripts/baraction.sh
+hardstatus alwaysfirstline "%{.rk}  %-w%{.rw}%n %t%{-}%+w %=%= %{.rw}%1` "
+
+
+# get rid of the vertical bars
+rendition so =00
+
+# hide the horizontal bar
+caption string "%{03} "
+
+
+screen -t "" bash
+split -v
+#split -h
+focus 
+screen -t "" bash
+focus 
+#screen -t "" bash
+#focus 
+
+#split -h
+#focus 
+#screen -t "" bash
+#split -h
+#focus 
+#screen -t "" bash
+#resize -h 82
+
+#split -v
+#resize -h 161
+#screen -t "" 0 /usr/bin/dmesg -wH 
+#screen -t '' 1
+#select 1
+

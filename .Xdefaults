@@ -1,0 +1,9 @@
+*xterm*background: #000000
+*xterm*foreground: #bababa
+
+# fix alt
+xterm*metaSendsEscape: true
+
+### allow proper copy / paste
+XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+
